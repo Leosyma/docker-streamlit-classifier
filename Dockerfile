@@ -3,9 +3,6 @@
 # Imagem base
 FROM python:3.12-slim
 
-# Definir o mantenedor da imagem
-LABEL maintainer="suporte@datascienceacademy.com.br"
-
 # Pasta de trabalho
 WORKDIR /app
 
@@ -16,7 +13,7 @@ COPY . .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Executar treinamento do modelo
-RUN python dsa_treina_modelo.py
+RUN python treina_modelo.py
 
 # Expor porta padrão do Streamlit
 EXPOSE 8501

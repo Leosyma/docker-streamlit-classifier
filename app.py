@@ -6,7 +6,7 @@ import joblib
 import numpy as np
 
 # Carregar o modelo
-modelo_dsa = joblib.load("modelo_dsa.pkl")
+modelo = joblib.load("modelo.pkl")
 
 # Configuração da página do Streamlit
 st.set_page_config(page_title="Containerized Streamlit classifier", page_icon=":100:", layout="wide")
@@ -24,7 +24,7 @@ for i in range(1, 6):
 # Se clicou no botão executamos o modelo
 if st.button("Prever"):
     input_array = np.array(inputs).reshape(1, -1)
-    prediction = modelo_dsa.predict(input_array)
-    prediction_proba = modelo_dsa.predict_proba(input_array)
+    prediction = modelo.predict(input_array)
+    prediction_proba = modelo.predict_proba(input_array)
     st.write(f"**Classe Prevista:** {prediction[0]}")
     st.write(f"**Probabilidades:** {prediction_proba}")
